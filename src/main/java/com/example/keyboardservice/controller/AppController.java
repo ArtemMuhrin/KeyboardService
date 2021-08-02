@@ -32,7 +32,7 @@ public class AppController {
 
     @PostMapping("/key")
     @ResponseBody
-    public ResponseEntity<Message> handleKey(@RequestBody Message message) {
+    public ResponseEntity<Message> handleMessage(@RequestBody Message message) {
         return ResponseEntity.ok(keyService.handleMessage(message));
     }
 }
