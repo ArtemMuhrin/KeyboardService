@@ -1,5 +1,6 @@
 package com.example.keyboardservice.controller;
 
+import com.example.keyboardservice.aspect.LogMethodCallCount;
 import com.example.keyboardservice.model.ButtonAction;
 import com.example.keyboardservice.model.Keyboard;
 import com.example.keyboardservice.model.KeyboardButton;
@@ -22,6 +23,7 @@ public class AppController {
         return Mono.just(message).doOnNext(m -> m.setText("Вы нажали: " + m.getText()));
     }
 
+    @LogMethodCallCount
     @GetMapping()
     public Mono<Keyboard> getKeyboard() {
         return Mono.just(createKeyboard());
